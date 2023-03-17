@@ -18,7 +18,7 @@ def divide(x, y):
 num1 = 10
 num2 = 5
 
-print("Addition:", add(num1, num2)) # Output: Addition: 15
-print("Subtraction:", subtract(num1, num2)) # Output: Subtraction: 5
-print("Multiplication:", multiply(num1, num2)) # Output: Multiplication: 50
-print("Division:", divide(num1, num2)) # Output: Division: 2.0
+print("Cong:", add(num1, num2)) # Output: Addition: 15
+print("Tru:", subtract(num1, num2)) # Output: Subtraction: 5
+print("Nhan:", multiply(num1, num2)) # Output: Multiplication: 50
+print("Chia:", divide(num1, num2)) # Output: Division: 2.0
