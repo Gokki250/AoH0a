@@ -93,7 +93,5 @@ class Form1(Form):
 
 In the App Editor, select the "Form1" component and open the Events panel. Add a "button_click" event handler for the "Button" component.
 In the Code Editor, add the following code to the "button_click" event handler:
-python
-Copy code
-self.button_click()
+pytho
 Save and run the app. Enter two numbers in the Number Input components and click the "Button" component. The results of the addition, subtraction, multiplication, and division will be displayed in the Label components.
