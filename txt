@@ -1,1 +1,62 @@
 
+Step 1: Create a new Anvil app
+
+Go to https://anvil.works/ and create a new account or log in if you already have one.
+Click on the "Create App" button in the top right corner of the dashboard.
+Select "Blank App" and give your app a name.
+Step 2: Design the UI
+
+Drag a "Text Box" component from the toolbar to the main form.
+Change the text property of the Text Box to "Enter numbers separated by commas".
+Drag a "Button" component to the form and change the text property to "Sort".
+Drag another Text Box component to the form and change its name property to "sorted_output". This is where the sorted array will be displayed.
+Step 3: Write the sorting algorithm
+
+In the "Code" section of the Anvil editor, create a new Python module by clicking the "New Python Module" button.
+In the new module, write the sorting algorithm. Here's an example of a bubble sort algorithm:
+less
+Copy code
+def bubble_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        for j in range(0, n-i-1):
+            if arr[j] > arr[j+1]:
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+    return arr
+Step 4: Create a server function to sort the array
+
+In the "Code" section, create a new server function called "sort_array".
+Inside the function, get the input from the user using the "get_query_parameter" function.
+Convert the input to an array using the "split" function and convert each string element to an integer using the "int" function.
+Call the "bubble_sort" function on the array to sort it in ascending order.
+Convert the sorted array to a string using the "join" function and a comma separator.
+Return the sorted array string.
+Here's an example code for the server function:
+
+less
+Copy code
+@anvil.server.callable
+def sort_array(input_str):
+    arr = [int(x) for x in input_str.split(",")]
+    sorted_arr = bubble_sort(arr)
+    sorted_str = ",".join(str(x) for x in sorted_arr)
+    return sorted_str
+Step 5: Add the client-side code to call the server function
+
+In the "Code" section, go back to the main form code.
+Add a click event to the "Sort" button using the "set_event_handler" function.
+Inside the event handler, call the "sort_array" function on the input text from the Text Box using the "anvil.server.call" function.
+Set the Text property of the "sorted_output" Text Box to the returned sorted array string.
+Here's an example code for the click event handler:
+
+ruby
+Copy code
+def button_1_click(self, **event_args):
+    input_str = self.text_box_1.text
+    sorted_str = anvil.server.call("sort_array", input_str)
+    self.sorted_output.text = sorted_str
+Step 6: Run the app
+
+Click the "Run" button in the top right corner of the editor to launch the app in a new window.
+Enter a list of numbers separated by commas in the input Text Box and click the "Sort" button.
+The sorted output will be displayed in the "sorted_output" Text Box.
